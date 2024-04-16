@@ -1,0 +1,33 @@
+{
+  "name": "Glassdoor Free",
+  "version": "0.1.0",
+  "description": "Explore Glassdoor without the hassle of sign-ups or logins",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.glassdoor.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.glassdoor.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+      ],
+      "matches": ["https://*.glassdoor.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/glassdoor-icon16.png",
+      "48": "assets/glassdoor-icon48.png",
+      "128": "assets/glassdoor-icon128.png"
+    },
+    "default_title": "Glassdoor Free",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
