@@ -30,11 +30,21 @@ chrome.runtime.onMessage.addListener((obj, sender, response) => {
     }
   };
 
+  const removeShowMoreButton = () => {
+    const showMoreButton = document.getElementsByClassName("review-details_showMoreButton__x_JZx");
+    while (showMoreButton.length > 0) {
+      for (const button of showMoreButton) {
+        button.remove();
+      }
+    }
+  };
+
   const { type, company } = obj;
 
   if (type === "new") {
     removeDiv();
     showMoreUnlocked();
+    removeShowMoreButton();
   } else {
     console.log("NOT NEW TYPE");
   }
