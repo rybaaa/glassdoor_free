@@ -18,10 +18,23 @@ chrome.runtime.onMessage.addListener((obj, sender, response) => {
       true
     );
   };
+
+  const showMoreUnlocked = () => {
+    const hiddenText = document.getElementsByClassName("review-details_isCollapsed__5mhq_");
+    if (hiddenText.length > 0) {
+      for (const p of hiddenText) {
+        p.style.whiteSpace = "unset";
+      }
+    } else {
+      console.log("P WITH HIDDEN TEXT IS NOT FOUND");
+    }
+  };
+
   const { type, company } = obj;
 
   if (type === "new") {
     removeDiv();
+    showMoreUnlocked();
   } else {
     console.log("NOT NEW TYPE");
   }
